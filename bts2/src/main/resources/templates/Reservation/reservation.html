@@ -1,0 +1,49 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org" 
+	lang="en" xmlns:layout="http://www.ultraq.net.nz/thymeleaf/layout"
+	xmlns:sec="http://www.thymeleaf.org/extras/spring-security">
+<head th:replace="~{Layouts/user_head:: myUserHead}">
+<link rel="stylesheet" href="css/idstyle.css">
+</head>
+    
+<body>
+
+	<div class="container">
+		<div class="container-time" >
+		
+		<img src="" alt="">
+			 <img src="" alt="">  
+		</div>
+
+		<div class="container-form">
+				<form action="#">
+					<h2 class="heading heading-yellow">Book the movie</h2>
+
+					<div class="form-field">
+						<p>Date</p>
+						<input type="date">
+					</div>
+					<div class="form-field">
+						<p>Time</p>
+						<input type="time">
+					</div>
+					<div class="form-field">
+						<p>Seat</p>
+						<select name="select" id="#">
+							<option value="1">1</option>
+							<option value="2">2</option>
+							<option value="3">3</option>
+							<option value="4">4</option>
+							<option value="5">5</option>
+							<option value="5+">5</option>
+						</select>
+					</div>
+
+					<button class="btn">Submit</button>
+				</form>
+		</div>
+	</div>
+	
+	
+</body>
+</html>

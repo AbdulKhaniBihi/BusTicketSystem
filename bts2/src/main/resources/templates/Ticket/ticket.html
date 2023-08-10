@@ -1,0 +1,63 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org" 
+	lang="en" xmlns:layout="http://www.ultraq.net.nz/thymeleaf/layout"
+	xmlns:sec="http://www.thymeleaf.org/extras/spring-security">
+<head th:replace="~{Layouts/head :: myHead}">
+    
+    <title>New Express</title>
+
+</head>
+<body>
+
+<div th:replace = "~{Layouts/topNav:: TopNav}"></div>
+<div class="home-content">
+<div class="container">
+    <div class="bottom-left">
+ 		<div class = "row">
+		<div class = "col-lg-3">
+			<a  th:href = "@{showtickets}" class = "btn btn-primary btn-sm mb-3"> Buy a ticket</a>
+		</div>
+		
+		</div>
+		<table class = "table table table-striped table-bordered"> 
+			<thead class = "table-dark">
+				<tr>
+       				 <td>Ticket Id</td>
+            		  <td>Seat Number</td>
+            		    <td>Row</td>
+            		  <td>Price</td>
+              		  <td>Bus Session</td>
+            		  <td>User</td>
+            		  <td>Update</td>
+            		   <td>Cancel</td>
+            		  <!-- <td sec:authorize="hasAuthority('USER')" >Update</td>
+            		   <td sec:authorize="hasAuthority('USER')" >Cancel</td> -->
+       			  </tr>
+			</thead>
+			
+			<tbody>
+					<tr th:each="tickets: ${ticket}">
+        			<td th:text = "${tickets.ticketId}">Ticket Id</td>
+           			 <td th:text="${tickets.seat.seatNumber}">Ticket Seat number</td> 
+           			  <td th:text="${tickets.seat.row.rowId}">Ticket Seat</td> 
+              		<td th:text="${tickets.busSession.price}">Ticket Bus Session</td>
+              		 <td th:text="${tickets.busSession.busSessionId}">Ticket Bus Session</td> 
+            		<td th:text="${tickets.user.firstName} +' ' + ${tickets.user.lastName}">Ticket User</td>
+            		<td sec:authorize="hasAuthority('ADMIN')" >
+           			 	<a class="btn btn-primary" 
+            				th:href= "@{editTicket/{id}(id=${tickets.ticketId})}"
+            				role="Edit">Update</a>
+           			 </td> 
+            
+       
+            <td sec:authorize="hasAuthority('ADMIN')" ><a th:href =  "@{tickets/{ticketId} (ticketId=${tickets.ticketId})}" class="btn btn-danger" role="Delete">Cancel</a></td>
+        </tr>
+			</tbody>
+			
+			
+		 </table>
+		</div>
+		</div>
+</div>
+</body>
+</html> 

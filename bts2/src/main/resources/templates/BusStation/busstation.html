@@ -1,0 +1,56 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org" 
+	lang="en" xmlns:layout="http://www.ultraq.net.nz/thymeleaf/layout"
+	xmlns:sec="http://www.thymeleaf.org/extras/spring-security">
+<head th:replace="~{Layouts/head :: myHead}">
+    
+    <title>New Express</title>
+
+</head>
+<body>
+<div th:replace="~{Layouts/sideBar :: mySideBar}"></div>
+<div th:replace = "~{Layouts/topNav:: TopNav}"></div>
+<div class="home-content">
+<div class="container">
+    <div class="bottom-left">
+ 		<div class = "row">
+		<div class = "col-lg-3">
+			<a th:href = "@{showbusStations}" class = "btn btn-primary btn-sm mb-3"> Add a Bus Station</a>
+		</div>
+		
+		</div>
+		<table class = "table table table-striped table-bordered"> 
+			<thead class = "table-dark">
+				<tr>
+       				 <td>Bus Station Id</td>
+            		  <td>Station Location</td>
+            		  <td>Station Name</td>
+              		  <td>Edit</td>
+            		  <td>Delete</td>
+       			  </tr>
+			</thead>
+			
+			<tbody>
+					<tr th:each="BusStation: ${busStation}">
+        			<td th:text = "${busStation.stationId}"> Id</td>
+        			<td th:text="${busStation.stationLocation}">Location</td>
+           			 <td th:text="${busStation.station.stationName}">Station Name</td>
+            		<td >
+           			 	<a class="btn btn-primary" 
+            				th:href= "@{editStation/{id}(id=${busStation.busStationId})}"
+            				role="Edit">Edit</a>
+           			 </td> 
+            		<td>
+            			<a th:href ="@{deleteBusStation/{busStationId} (busStationId=${busStation.busStationId})}"
+            		 		class="btn btn-danger" role="Delete">Delete</a>
+            		 </td>
+        </tr>
+			</tbody>
+			
+			
+		 </table>
+		</div>
+</div>
+</div>
+</body>
+</html> 

@@ -1,0 +1,231 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org" lang="en" xmlns:layout="http://www.ultraq.net.nz/thymeleaf/layout" xmlns:sec="http://www.thymeleaf.org/extras/spring-security">
+<head >
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>New Express</title>
+  <link rel="stylesheet" href="css/idstyle.css">
+  <link rel="stylesheet" href="css/ad.css">
+</head>
+<body>
+  <header>
+    <div class="logo">
+        <a href="#" class="toptitle">The New Express</a>
+        <img src="img/busimg.png" alt="Bus Image" class="bus-img">
+    </div>
+    <li><a href="/login">Login</a></li>
+</header>
+
+  <main>
+    <nav class="navbar">
+      <ul class="nav-links">
+        <li><a href="#">Admin Navigation</a></li>
+        <li class="dropdown">
+          <a href="#">Users</a>
+          <div class="dropdown-content">
+            <a href="http://localhost:8080/user/users">List Users</a>
+            <a href="http://localhost:8080/user/showusers">Add Users</a>
+          </div>
+        </li>
+        <li class="dropdown">
+          <a href="#">Seats</a>
+          <div class="dropdown-content">
+            <a href="http://localhost:8080/seats/seat">List Seats</a>
+            <a href="http://localhost:8080/seat/showseats">Add Seats</a>
+          </div>
+        </li>
+        <li class="dropdown">
+          <a href="#">Stations</a>
+          <div class="dropdown-content">
+            <a href="http://localhost:8080/station/stations">List Stations</a>
+            <a href="http://localhost:8080/station/showstations">Add Stations</a>
+          </div>
+        </li>
+        <li class="dropdown">
+          <a href="#">Tickets</a>
+          <div class="dropdown-content">
+            <a href="http://localhost:8080/ticket/showtickets">List Tickets</a>
+            <a href="http://localhost:8080/ticket/list">Add Tickets</a>
+          </div>
+        </li>
+        <li class="dropdown">
+          <a href="#">Rows</a>
+          <div class="dropdown-content">
+            <a href="http://localhost:8080/row/showrows">List Rows</a>
+            <a href="http://localhost:8080/row/busStationRows">Add Rows</a>
+          </div>
+        </li>
+        <li class="dropdown">
+          <a href="#">Buses</a>
+          <div class="dropdown-content">
+            <a href="http://localhost:8080/bus/buses">List Buses</a>
+            <a href="http://localhost:8080/bus/showbuses">Add Buses</a>
+          </div>
+        </li>
+        <li class="dropdown">
+          <a href="#">BusStation</a>
+          <div class="dropdown-content">
+            <a href="http://localhost:8080/busstation/BusStations">List BusStation</a>
+            <a href="http://localhost:8080/busstation/showbusStations">Add BusStation</a>
+          </div>
+        </li>
+        <li class="dropdown">
+          <a href="#">BusSession</a>
+          <div class="dropdown-content">
+            <a href="http://localhost:8080/session/busSession">List BusStation</a>
+            <a href="http://localhost:8080/session/showbussession">Add BusStation</a>
+          </div>
+        </li>
+            
+          
+      </ul>
+    </nav>
+    <section class="home" id="home">
+      
+      <div class="container">
+        <div class="container">
+          <!-- A heading for the section -->
+          <h1>Take a bus to LONDON</h1>
+    
+          <!-- A container for the cards -->
+          <div class="card-container">
+            <!-- A wrapper for a single card -->
+            <div class="card-wrapper">
+              <!-- A card with a light background -->
+              <div class="card light">
+                <!-- An overlay for the card with text -->
+                <div class="text-overlay">
+                  <!-- A heading for the card -->
+                  <h2>From Leicester</h2>
+    
+                  <!-- A price for the plan -->
+                  <div class="price">£10<small>  3 hours</small></div>
+    
+                  <!-- Details of the plan -->
+                  <div class="details-text">
+                    <span>Wheelchair Friendly</span>
+                    <span> Tap onboard with E-ticket</span>
+                    <span>Smart Pay</span>
+                  </div>
+                </div>
+    
+                <!-- A container for the purchase button -->
+                <div class="purchase-button-container" >
+                  <!-- A heading for the card on the back side of the card -->
+                  <h2 class="back-h2">Leicester to London</h2>
+    
+                  <!-- A button to purchase the plan -->
+                  <div><a th:href="@{reservation/reserve}" class="purchase-button light">Purchase</a></div>
+                </div>
+              </div>
+            </div>
+            
+                
+    
+            <!-- Another wrapper for a single card -->
+            <div class="card-wrapper">
+              <!-- A card with a dark background -->
+              <div class="card dark">
+                <!-- An overlay for the card with text -->
+                <div class="text-overlay">
+                  <!-- A heading for the card -->
+                  <h2>From Manchester</h2>
+    
+                  <!-- A price for the plan -->
+                  <div class="price">£10<small>  5 hours</small></div>
+    
+                  <!-- Details of the plan -->
+                  <div class="details-text">
+                    <span>Wheelchair Friendly</span>
+                    <span> Tap onboard with E-ticket</span>
+                    <span>Smart Pay</span>
+                  </div>
+                </div>
+    
+                <!-- A container for the purchase button -->
+                <div class="purchase-button-container">
+                  <!-- A heading for the card on the back side of the card -->
+                  <h2 class="back-h2">Manchester to London</h2>
+    
+                  <!-- A button to purchase the plan -->
+                  <div class="purchase-button dark">Purchase</div>
+                </div>
+              </div>
+            </div>
+    
+            <!-- Another wrapper for a single card -->
+            <div class="card-wrapper">
+              <!-- A card with a light background -->
+              <div class="card light">
+                <!-- An overlay for the card with text -->
+                <div class="text-overlay">
+                  <!-- A heading for the card -->
+                  <h2>From Liverpool</h2>
+    
+                  <!-- A price for the plan -->
+                  <div class="price">£13<small>  4 hours</small></div>
+    
+                  <!-- Details of the plan -->
+                  <div class="details-text">
+                    <span>Wheelchair Friendly</span>
+                    <span> Tap onboard with E-ticket</span>
+                    <span>Smart Pay</span>
+                  </div>
+                </div>
+    
+                <!-- A container for the purchase button -->
+                <div class="purchase-button-container">
+                  <!-- A heading for the card on the back side of the card -->
+                  <h2 class="back-h2">Liverpool to London</h2>
+    
+                  <!-- A button to purchase the plan -->
+                  <div class="purchase-button light">Purchase</div>
+                </div>
+              </div>
+            </div>
+      </div>
+      <div class="items reveal">
+        <div class = "aboutbox">
+          <div class="about-img">
+            <img src="img/leicester.jpg" alt="Leicester">
+          </div>
+          <h3>Leicester</h3>
+          <p>	Leicester is a diverse city in England, 
+            known for its rich history, multicultural 
+            atmosphere, and vibrant cultural scene. 
+            It's home to historic landmarks, universities,
+             and a strong sense of community.
+          </p>
+        </div>
+        <div class = "aboutbox">
+          <div class="about-img">
+            <img src="img/city.jpg" alt="Manchester">
+          </div>
+          <h3>Manchester</h3>
+          <p>	
+            Manchester: Vibrant city in northwest
+             England, known for its rich industrial 
+             history, iconic music scene, diverse 
+            culture, and renowned football clubs like 
+            Manchester United and Manchester City.
+          </p>
+        </div>
+        <div class = "aboutbox">
+          <div class="about-img">
+            <img src="img/liverpool.jpg" alt="Liverpool">
+          </div>
+          <h3>Liverpool</h3>
+          <p>	Liverpool: Historic maritime city in England, 
+            known for The Beatles, vibrant culture, and iconic waterfront.
+            Home to two Premier League football clubs 
+            and rich industrial heritage.
+          </p>
+        </div>
+      </div>
+      
+    </section>
+  </main>
+
+  <script src="js/javascript1.js"></script>
+</body>
+</html>

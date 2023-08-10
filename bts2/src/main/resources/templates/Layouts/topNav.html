@@ -1,0 +1,15 @@
+<html xmlns:th="http://www.thymeleaf.org" 
+	lang="en" xmlns:layout="http://www.ultraq.net.nz/thymeleaf/layout"
+	xmlns:sec="http://www.thymeleaf.org/extras/spring-security">
+
+
+<div class="home-section" th:fragment = "TopNav">
+    <nav>
+      
+      
+      <div class="profile-details">
+        <span sec:authentication="name"></span>
+    
+        <i class='bx bx-chevron-down' ></i>
+      </div>
+    </nav>

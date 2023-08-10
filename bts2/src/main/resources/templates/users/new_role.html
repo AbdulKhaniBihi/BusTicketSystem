@@ -1,0 +1,33 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org" 
+	lang="en" xmlns:layout="http://www.ultraq.net.nz/thymeleaf/layout"
+	xmlns:sec="http://www.thymeleaf.org/extras/spring-security">
+<head th:replace="~{Layouts/head :: myHead}">
+    
+    <title>New Express</title>
+
+</head>
+<body>
+<div th:replace="~{Layouts/sideBar :: mySideBar}"></div>
+<div th:replace = "~{Layouts/topNav:: TopNav}"></div>
+<div class="home-content">
+
+<div class="container">
+    <div class="page-header">
+        <h1>Add Role</h1>
+    </div>
+</div>
+<footer class="footer navbar-inverse navbar-fixed-bottom">
+    <div class="container">
+        <div class="row">
+            <div class="col-md-4"></div>
+            <div class="col-md-4"><p class="text-muted"></p></div>
+        </div>
+    </div>
+</footer>
+
+<script src="http://code.jquery.com/jquery-1.12.4.min.js"></script>
+<script src="https://code.jquery.com/ui/1.12.1/jquery-ui.min.js"></script>
+<script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"></script>
+</body>
+</html>

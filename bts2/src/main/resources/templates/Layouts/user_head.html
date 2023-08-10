@@ -1,0 +1,89 @@
+<html xmlns:th="http://www.thymeleaf.org" 
+lang="en" xmlns:layout="http://www.ultraq.net.nz/thymeleaf/layout"
+xmlns:sec="http://www.thymeleaf.org/extras/spring-security">
+
+
+<head th:fragment="myUserHead">
+<meta charset="utf-8">
+<meta http-equiv="X-UA-Compatible" content="IE=edge">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<a href="http://localhost:8080"><title>Portfolio</title></a>
+
+<link rel="stylesheet" href="../css/main.css">
+<link rel="stylesheet" href="../css/media_query.css">
+
+<link rel="stylesheet" href="../css/reservebusstyle.css">
+
+<link href="https://fonts.googleapis.com/css?family=Inter:100,200,300,regular,500,600,700,800,900" rel="stylesheet" />
+</head>
+
+<body>
+
+  <header class="">
+    <div class="navbar">
+
+      <!--
+        - menu button for small screen
+      -->
+      <button class="navbar-menu-btn">
+        <span class="one"></span>
+        <span class="two"></span>
+        <span class="three"></span>
+      </button>
+
+
+      <a href="#" class="navbar-brand">
+        <img src="" alt="">
+      </a>
+
+      <!--
+        - navbar navigation
+      -->
+
+      <nav class="">
+        <ul class="navbar-nav">
+
+          <li> <a href="#" class="navbar-link">Home</a> </li>
+         <li> <a th:href = "@{reservation/reserve}" class="navbar-link">Reservation</a> </li>
+          
+
+        </ul>
+      </nav>
+
+      <!--
+        - search and sign-in
+      -->
+
+      <div class="navbar-actions">
+
+        <form action="#" class="navbar-form">
+          <input type="text" name="search" placeholder="I'm looking for..." class="navbar-form-search">
+
+          <button class="navbar-form-btn">
+            <ion-icon name="search-outline"></ion-icon>
+          </button>
+
+          <button class="navbar-form-close">
+            <ion-icon name="close-circle-outline"></ion-icon>
+          </button>
+        </form>
+
+
+        <!--
+          - search button for small screen
+        -->
+
+        <button class="navbar-search-btn">
+          <ion-icon name="search-outline"></ion-icon>
+        </button>
+<div class="profile-details">
+      <span sec:authentication="name"></span>
+         <form class="form-inline my-2 my-lg-0" form-method="post" th:action="@{logout}">
+              <button sec:authorize="isAuthenticated()" class="btn btn-outline-danger my-2 my-sm-0 btn-sm" type="submit">Logout</button>
+              <button sec:authorize="isAnonymous()" th:href="@{~/login}" class="btn btn-outline-info my-2 my-sm-0 btn-sm" type="submit">Login</button>
+          </form>
+
+      </div>
+
+    </div>
+  </header>

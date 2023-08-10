@@ -1,0 +1,56 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org" 
+	lang="en" xmlns:layout="http://www.ultraq.net.nz/thymeleaf/layout"
+	xmlns:sec="http://www.thymeleaf.org/extras/spring-security">
+<head th:replace="~{Layouts/head :: myHead}~">
+    
+    <title>New Express</title>
+
+</head>
+<body>
+<div th:replace="~{Layouts/sideBar :: mySideBar}"></div>
+<div th:replace = "~{Layouts/topNav:: TopNav}"></div>
+<div class="home-content">
+<div class="container">
+    <div class="bottom-left">
+ 		<div class = "row">
+		<div class = "col-lg-3">
+			<a sec:authorize="hasAuthority('ADMIN')" th:href = "@{showusers}" class = "btn btn-primary btn-sm mb-3"> Add a User</a>
+		</div>
+		
+		</div>
+		<table class = "table table table-striped table-bordered"> 
+			<thead class = "table-dark">
+				<tr>
+       				 <td> Role Id</td>
+            		  <td>Role Name</td>
+            		  <td>Edit</td>
+            		  <td>delete</td>
+       			  </tr>
+			</thead>
+			
+			<tbody>
+					 <tr th:each="rol: ${roles}">
+        			<td th:text = "${rol.roleId}">Role Id</td>
+        			<td th:text = "${rol.roleName}">Role Id</td>
+              	
+            		<td >
+           			 	<a class="btn btn-primary" 
+            				th:href= "@{editRole/{id}(id=${rol.roleId})}"
+            				role="Edit">Edit</a>
+           			 </td> 
+            
+       
+       	  <td><a th:href =  "@{role/{roleId} (roleId=${rol.roleId})}" 
+       	  				class="btn btn-danger" role="Delete">Delete</a>
+       	  				</td>
+        </tr> 
+			</tbody>
+			
+			
+		 </table>
+		</div>
+</div>
+</div>
+</body>
+</html> 

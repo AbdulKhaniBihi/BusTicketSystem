@@ -1,0 +1,61 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org" 
+	lang="en" xmlns:layout="http://www.ultraq.net.nz/thymeleaf/layout"
+	xmlns:sec="http://www.thymeleaf.org/extras/spring-security">
+<head >
+    
+    <title>New Express</title>
+    
+
+</head>
+<body>
+<div th:replace="~{Layouts/sideBar :: mySideBar}"></div>
+<div th:replace = "~{Layouts/topNav:: TopNav}"></div>
+<div class="home-content">
+<div class="container">
+    <div class="page-header">
+        <h1>Buy a ticket</h1>
+    </div>
+    <img src="img/leicester.jpg" alt="">
+			
+		</div>
+     <form th:action="@{addticket}" th:object="${ticket}" method="post">
+    	<select th:field ="*{seat}"  name="seat"class="form-control col-4 mb-4" >
+    		<th:block th:each="seat : ${seatList}">
+    			<option th:text ="${seat.seatNumber}" th:value="${seat.seatId}" /> 
+    			
+    		</th:block> 
+    	</select> 
+    	
+    	<select th:field ="*{user}"  name="user"class="form-control col-4 mb-4" >
+    		<th:block th:each="users : ${userList}">
+    			<option th:text ="${users.firstName}" th:value="${users.userId}" /> 
+    			
+    		</th:block>
+    	</select>
+    	<select th:field ="*{busSession}"  name="busSession"class="form-control col-4 mb-4" >
+    		<th:block th:each="bsession : ${busSessionList}">
+    			<option th:text ="${bsession.busSessionId}" th:value="${bsession.busSessionId}" /> 
+    			
+    		</th:block>
+    	</select>
+    	
+    	<button class="btn btn-primary" type="submit">Save</button>
+    </form> 
+   
+</div>
+</div>
+<footer class="footer navbar-inverse navbar-fixed-bottom">
+    <div class="container">
+        <div class="row">
+            <div class="col-md-4"></div>
+            <div class="col-md-4"><p class="text-muted">@Copyright 2022 Yaxye Ali</p></div>
+        </div>
+    </div>
+</footer>
+
+<script src="http://code.jquery.com/jquery-1.12.4.min.js"></script>
+<script src="https://code.jquery.com/ui/1.12.1/jquery-ui.min.js"></script>
+<script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"></script>
+</body>
+</html>

@@ -1,0 +1,55 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org" lang="en" xmlns:layout="http://www.ultraq.net.nz/thymeleaf/layout"
+      xmlns:sec="http://www.thymeleaf.org/extras/spring-security">
+<head th:replace="~{Layouts/head :: myHead}">
+
+    <title>New Express</title>
+
+</head>
+<body>
+<div th:replace="~{Layouts/sideBar :: mySideBar}"></div>
+<div th:replace="~{Layouts/topNav:: TopNav}"></div>
+<div class="home-content">
+    <div class="container">
+        <div class="page-header">
+            <h1>Add buses</h1>
+        </div>
+        <form th:action="@{/bus/addbus}" th:object="${bus}" method="post" enctype="multipart/form-data">
+            <input type="text" th:field="*{busOrigin}" name="busOrigin" placeholder="Enter busOrigin"
+                   class="form-control col-4 mb-4"/>
+            <p th:if="${#fields.hasErrors('busOrigin')}" th:errorclass="error" th:errors="*{busOrigin}"/>
+
+            <input type="text" th:field="*{busDestination}" name="busDestination"
+                   placeholder="Enter Bus Destination" class="form-control col-4 mb-4"/>
+            <p th:if="${#fields.hasErrors('busDestination')}" th:errorclass="error"
+               th:errors="*{busDestination}"/>
+            <input type="text" th:field="*{busRegNumber}" name="busRegNumber" placeholder="Enter Bus Registration"
+                   class="form-control col-4 mb-4"/>
+            <p th:if="${#fields.hasErrors('busRegNumber')}" th:errorclass="error" th:errors="*{busRegNumber}"/>
+
+            <input type="text" th:field="*{busDriver}" name="busDriver" placeholder="Enter Bus Drivers Name"
+                   class="form-control col-4 mb-4"/>
+            <p th:if="${#fields.hasErrors('busDriver')}" th:errorclass="error" th:errors="*{busDriver}"/>
+
+            <input type="date" th:field="*{departureDate}" name="departureDate"
+                   placeholder="Enter Bus Departure Date" class="form-control col-4 mb-4"/>
+            <button class="btn btn-primary" type="submit">Save</button>
+            <input type="hidden" th:field="*{busId}"/>
+        </form>
+
+    </div>
+</div>
+<footer class="footer navbar-inverse navbar-fixed-bottom">
+    <div class="container">
+        <div class="row">
+            <div class="col-md-4"></div>
+            <div class="col-md-4"><p class="text-muted"></p></div>
+        </div>
+    </div>
+</footer>
+
+<script src="http://code.jquery.com/jquery-1.12.4.min.js"></script>
+<script src="https://code.jquery.com/ui/1.12.1/jquery-ui.min.js"></script>
+<script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"></script>
+</body>
+</html>

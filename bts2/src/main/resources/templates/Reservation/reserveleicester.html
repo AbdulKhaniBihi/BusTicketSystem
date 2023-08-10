@@ -1,0 +1,59 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>Reserving</title>
+	<link rel="stylesheet" href="/css/reservebusstyle.css">
+	
+	<!-- Font -->
+	<link href="https://fonts.googleapis.com/css?family=Raleway:400,600,700,900" rel="stylesheet">
+
+  <meta charset="UTF-8">
+</head>
+
+<body>
+
+	<div class="container">
+		<div class="container-time" >
+			<img class = "image" src="/img/leicester.jpg" alt="">
+		</div>
+
+		<div class="container-form">
+			<form th:action="@{addticket}" th:object="${ticket}" method="post">
+				<h2 class="heading heading-yellow">Reserve your seat from Leicester to London</h2>
+				<label>Seat Number</label>
+				 <select th:field ="*{seat}"  name="seat"class="form-control col-4 mb-4" >
+					 <th:block th:each="seat : ${seatList}">
+						 <option th:text ="${seat.seatNumber}" th:value="${seat.seatId}" /> 
+						 
+					 </th:block> 
+				 
+				 </select>
+			
+				  <label>Details</label>
+				 <select th:field ="*{busSession}"  name="busSession"class="form-control col-4 mb-4" >
+					 <th:block th:each="bsession : ${busSessionList}">
+						 <option th:text ="${bussession.bus.busRegNumber} + ' Bus Origin ' 
+						 + ${bsession.busOrigin} +
+						 ' BusDestination ' 
+						 + ${bsession.busDestination}  +
+						 ' Bus Driver ' 
+						 + ${bsession.busDriver}  +
+						 ' Bus Station ' 
+						 + ${bsession.busstation.busstationLocation}  " th:value="${bsession.busSessionId}" /> 
+						 
+					 </th:block>
+				 </select>
+				 
+				 <button class="btn btn-primary" type="submit">Reserve</button>
+				 <div>
+					 <p2>
+					 </p2>
+				 </div>
+			 </form> 
+		</div>
+	</div>
+
+	
+</body>
+</html>

@@ -1,0 +1,50 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://www.thymeleaf.org">
+<head th:replace="~{Layouts/head :: myHead}">
+
+    
+   
+
+</head>
+<body>
+<div class="container">
+    <div class="card">
+        <div class="card-header">
+            <i class="fa fa-user"></i> Register here
+        </div>
+        <div class="container">
+            <div class="page-header">
+                <h1>Register</h1>
+            </div>
+            <form th:action="@{adduser}" th:object="${users}" method="post">
+                <input type="text" th:field="*{firstName}" name="firstName" placeholder="Enter first name" class="form-control mb-3"/>
+                <p th:if="${#fields.hasErrors('firstName')}" th:errorclass="error" th:errors="*{firstName}"></p>
+                <input type="text" th:field="*{lastName}" name="lastName" placeholder="Enter last name" class="form-control mb-3"/>
+                <p th:if="${#fields.hasErrors('lastName')}" th:errorclass="error" th:errors="*{lastName}"></p>
+                <input type="text" th:field="*{email}" name="email" placeholder="Enter email" class="form-control mb-3"/>
+                <p th:if="${#fields.hasErrors('email')}" th:errorclass="error" th:errors="*{email}"></p>
+                <input type="password" th:field="*{password}" name="password" placeholder="Enter password" class="form-control mb-3"/>
+                <p th:if="${#fields.hasErrors('password')}" th:errorclass="error" th:errors="*{password}"></p>
+               
+        	
+        	    </select>  -->
+                <button class="btn btn-primary" type="submit">Register</button>
+            </form>
+
+        </div>
+    </div>
+</div>
+<footer class="footer navbar-inverse navbar-fixed-bottom">
+    <div class="container">
+        <div class="row">
+            <div class="col-md-4"></div>
+
+        </div>
+    </div>
+</footer>
+
+<script src="http://code.jquery.com/jquery-1.12.4.min.js"></script>
+<script src="https://code.jquery.com/ui/1.12.1/jquery-ui.min.js"></script>
+<script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"></script>
+</body>
+</html>

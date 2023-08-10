@@ -1,0 +1,53 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org" 
+	lang="en" xmlns:layout="http://www.ultraq.net.nz/thymeleaf/layout"
+	xmlns:sec="http://www.thymeleaf.org/extras/spring-security">
+	<head th:replace="~{Layouts/head :: myHead}"></head>
+    <title>New Express</title>
+</head>
+<body>
+	<div th:replace="~{Layouts/sideBar :: mySideBar}"></div>
+	<div th:replace = "~{Layouts/topNav:: TopNav}"></div>
+<div class="home-content">
+<div class="container">
+    <div class="bottom-left">
+ 		<div class="row">
+			<div class="col-lg-3">
+				<a th:href="@{showbuses}" class="btn btn-primary btn-sm mb-3"> Add a Bus</a>
+			</div>	
+		</div>
+		<table class="table table table-striped table-bordered"> 
+			<thead class="table-dark">
+				<tr>
+					<td>Bus Id</td>
+					<td>Bus Origin</td>
+					<td>Bus Destination</td>
+					<td>Bus Reg Number</td>
+					<td>Bus Driver</td>
+					<td>Departure Date</td>
+					<td>Edit</td>
+					<td>Delete</td>
+				</tr>
+			</thead>
+			<tbody>
+				<tr th:each="bus: ${bus}">
+					<td th:text="${bus.busId}">Bus Id</td>
+					<td th:text="${bus.busOrigin}">Bus Origin</td>
+					<td th:text="${bus.busDestination}">Bus Destination</td>
+					<td th:text="${bus.busRegNumber}">Bus Reg Number</td>
+					<td th:text="${bus.busDriver}">Bus Driver</td>
+					<td th:text="${bus.departureDate}">Departure Date</td>
+					<td>
+						<a class="btn btn-primary" th:href="@{editBus/{id}(id=${bus.busId})}" role="Edit">Edit</a>
+					</td> 
+					<td>
+						<a th:href="@{bus/{busId} (busId=${bus.busId})}" class="btn btn-danger" role="Delete">Delete</a>
+					</td>
+				</tr>
+			</tbody>
+		</table>
+	</div>
+</div>
+</div>
+</body>
+</html>

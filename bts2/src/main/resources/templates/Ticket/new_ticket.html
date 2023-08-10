@@ -1,0 +1,66 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org" 
+	lang="en" xmlns:layout="http://www.ultraq.net.nz/thymeleaf/layout"
+	xmlns:sec="http://www.thymeleaf.org/extras/spring-security">
+<head th:replace="~{Layouts/head :: myHead}">
+    
+    <title>New Express</title>
+    <link rel="stylesheet" href="/css/bookingstyle.css">
+
+</head>
+<body>
+<div th:replace="~{Layouts/sideBar :: mySideBar}"></div>
+<div th:replace = "~{Layouts/topNav:: TopNav}"></div>
+<div class="home-content">
+<div class="container">
+    <div class="page-header">
+        <h1>Buy a ticket</h1>
+    </div>
+    <div class="container-time col-4 mb-4" >
+		
+		<img src="" alt="">
+			
+		</div>
+     <form th:action="@{addticket}" th:object="${ticket}" method="post">
+       <label>Seat Number</label>
+    	<select th:field ="*{seat}"  name="seat"class="form-control col-4 mb-4" >
+    		<th:block th:each="seat : ${seatList}">
+    			<option th:text ="${seat.seatNumber}" th:value="${seat.seatId}" /> 
+    			
+    		</th:block> 
+    	
+    	</select>
+   
+    	 <label>Information</label>
+    	<select th:field ="*{busSession}"  name="busSession"class="form-control col-4 mb-4" >
+    		<th:block th:each="bsession : ${busSessionList}">
+    			<option th:text ="${bsession.bus.title} + ' Date ' 
+    			+ ${bsession.busDate} +
+    			' Time ' 
+    			+ ${bsession.originTime}  +
+    			' Price ' 
+    			+ ${bsession.price}  +
+    			'Station Location' 
+    			+ ${bsession.busStation.stationLocation}  " th:value="${bsession.busSessionId}" /> 
+    			
+    		</th:block>
+    	</select>
+    	
+    	<button class="btn btn-primary" type="submit">Save</button>
+    </form> 
+   
+</div>
+</div>
+<footer class="footer navbar-inverse navbar-fixed-bottom">
+        <div class="row">
+            <div class="col-md-4"></div>
+            <div class="col-md-4"><p class="text-muted"></p></div>
+        </div>
+   
+</footer>
+
+<script src="http://code.jquery.com/jquery-1.12.4.min.js"></script>
+<script src="https://code.jquery.com/ui/1.12.1/jquery-ui.min.js"></script>
+<script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"></script>
+</body>
+</html>
